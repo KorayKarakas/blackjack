@@ -93,18 +93,21 @@ def play():
                 player_points = calc_player()
  
                 if player_points == 21:
+                    draw_dealer()
+                    dealer_points = calc_dealer()
                     while True:
-                        draw_dealer()
-                        dealer_points = calc_dealer()
                         if dealer_points == 21:
                             print("The game ends a Draw.")
                             return
+          
                         elif (17 <= dealer_points < 21):
                             print('Player wins!')
                             return
+             
                         elif dealer_points > 21:
                             print("Dealer Bust.")
                             return
+                
                         elif dealer_points < 17:
                             draw_dealer()
                             dealer_points = calc_dealer()
